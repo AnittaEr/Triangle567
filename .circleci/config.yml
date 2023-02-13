@@ -40,8 +40,7 @@ jobs:
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  testing_triangles:
+
      # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
@@ -56,4 +55,8 @@ workflows:
                   pytest --junitxml=test-results/junit.xml TestTriangle.py
             - store_test_results:
                 path: test-results
+workflows:
+  testing_triangles:
+    jobs:
+      - build-and-test
        
